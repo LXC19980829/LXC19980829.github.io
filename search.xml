@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<search> 
+  
+  
+    
+    <entry>
+      <title>Java程序（一）</title>
+      <link href="/post/654572fa/"/>
+      <url>/post/654572fa/</url>
+      
+        <content type="html"><![CDATA[<p>写在前面的话：第一次写博客难免有些不知所措，只能厚着脸皮把我写的Java程序拿出来，如有错误，望告知。感谢各位！</p><blockquote><p>从键盘上输入10 个整数，并将其放入一个一维数组中，然后将其前5 个元素与后5 个元素对换，即：第1 个元素与第10 个元素互换，第2 个元素与第9 个元素互换⋯ 第5 个元素与第6个元素互换。分别输出数组原来各元素的值和对换后各元素的值。输出结果可以参考图1。具体的要求如下：</p><ul><li><p>（1）主类的类名为Test01_+你的姓名的汉语拼音的全称；</p></li><li><p>（2）给类加上文档注释，内容为你真实的班级学号姓名信息；</p></li><li><p>（3）在合适的位置给程序添加行尾注释，内容为程序的主要功能；</p></li><li><p>（4）从键盘输入整数的时候，要捕捉可能会出现的异常，并对异常进行处理。</p></li></ul></blockquote><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line"><span class="keyword">package</span> mypackage;</span><br><span class="line"><span class="comment">/*程序功能：从键盘上输入10 个整数，并将其放入一个一维数组中，</span></span><br><span class="line"><span class="comment"> * 然后将其前5个元素与后5个元素对换，即：第1个元素与第10 个元素互换，</span></span><br><span class="line"><span class="comment"> * 第2 个元素与第9 个元素互换⋯ 第5 个元素与第6个元素互换。</span></span><br><span class="line"><span class="comment"> * 分别输出数组原来各元素的值和对换后各元素的值。</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">import</span> java.util.Scanner;<span class="comment">//导入scanner类</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test01_LiuXueCheng</span> </span>&#123; </span><br><span class="line"><span class="comment">/*</span></span><br><span class="line"><span class="comment"> * 班级：17电信1</span></span><br><span class="line"><span class="comment"> * 学号：20170502117</span></span><br><span class="line"><span class="comment"> * 姓名：刘学诚</span></span><br><span class="line"><span class="comment">*/</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"><span class="comment">// TODO Auto-generated method stub</span></span><br><span class="line">Scanner in = <span class="keyword">new</span> Scanner(System.in);</span><br><span class="line"><span class="keyword">int</span>[] array = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">10</span>];  <span class="comment">// 创建一个一维数组</span></span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;   <span class="comment">// 使用for循环</span></span><br><span class="line">            <span class="keyword">boolean</span> flag = <span class="keyword">true</span>;    <span class="comment">// 设置标志位</span></span><br><span class="line">            <span class="keyword">while</span> (flag) &#123;</span><br><span class="line">                System.out.print(<span class="string">&quot;请输入第&quot;</span> + (i + <span class="number">1</span>) + <span class="string">&quot;个整数：&quot;</span>);</span><br><span class="line">                String num = in.next();</span><br><span class="line">                Integer ans = <span class="keyword">null</span>;     </span><br><span class="line">              <span class="keyword">try</span> <span class="comment">//异常处理</span></span><br><span class="line">                &#123; </span><br><span class="line">                    ans = Integer.parseInt(num);</span><br><span class="line">                &#125; <span class="keyword">catch</span> (NumberFormatException e) &#123;</span><br><span class="line">                    System.out.println(<span class="string">&quot;输入错误，请重新输入&quot;</span>);</span><br><span class="line">                    in.nextLine();</span><br><span class="line">                    <span class="keyword">continue</span>;</span><br><span class="line">                &#125;</span><br><span class="line">                <span class="keyword">if</span> (ans != <span class="keyword">null</span>)&#123;</span><br><span class="line">                    flag = <span class="keyword">false</span>;</span><br><span class="line">                    array[i] = ans;</span><br><span class="line">                &#125;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">&quot;你输入的数组是：&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++)<span class="comment">// for循环输出数组</span></span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.print(array[i]+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; array.length/<span class="number">2</span>; i++)<span class="comment">// 交换对应元素位置</span></span><br><span class="line">        &#123;  </span><br><span class="line">            <span class="keyword">int</span> temp = array[i];</span><br><span class="line">            array[i] = array[array.length-i-<span class="number">1</span>];</span><br><span class="line">            array[array.length-i-<span class="number">1</span>] = temp;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println();</span><br><span class="line">        System.out.println(<span class="string">&quot;交换后的数组是：&quot;</span>);</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) <span class="comment">// for循环输出交换后的数组 </span></span><br><span class="line">        &#123;  </span><br><span class="line">            System.out.print(array[i]+<span class="string">&quot;\t&quot;</span>);</span><br><span class="line">        &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Hello World</title>
+      <link href="/post/4a17b156/"/>
+      <url>/post/4a17b156/</url>
+      
+        <content type="html"><![CDATA[<p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p><h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/writing.html">Writing</a></p><h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/server.html">Server</a></p><h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/generating.html">Generating</a></p><h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure><p>More info: <a href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>]]></content>
+      
+      
+      
+    </entry>
+    
+    
+  
+  
+    
+    
+    <entry>
+      <title>分类</title>
+      <link href="/categories/index.html"/>
+      <url>/categories/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>友情链接</title>
+      <link href="/link/index.html"/>
+      <url>/link/index.html</url>
+      
+        <content type="html"><![CDATA[]]></content>
+      
+    </entry>
+    
+    
+  
+</search>
